@@ -68,7 +68,7 @@ if (TARGET === 'build') {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ExtractTextPlugin.extract('style', 'css'),
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
           include: path.resolve(ROOT_PATH, 'app')
         },
         {
