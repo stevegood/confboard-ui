@@ -1,3 +1,5 @@
+var TITLE = 'Confboard';
+
 var fs = require('fs');
 var React = require('react');
 var path = require('path');
@@ -61,7 +63,7 @@ if (TARGET === 'start' || !TARGET) {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new HtmlwebpackPlugin({
-        title: 'Kanban app'
+        title: TITLE
       })
     ]
   });
@@ -110,7 +112,7 @@ if (TARGET === 'build') {
         }
       }),
       new HtmlwebpackPlugin({
-        title: 'Kanban app',
+        title: TITLE,
         templateContent: renderTemplate(
           fs.readFileSync(path.join(__dirname, 'templates/index.tpl'), 'utf8'),
           {

@@ -1,34 +1,59 @@
-import AltContainer from 'alt/AltContainer';
 import React from 'react';
-import Lanes from './Lanes.jsx';
-import Notes from './Notes.jsx';
+import ThemeManager from '../libs/thememanager';
+import {AppBar, AppCanvas, Menu, MenuItem} from 'material-ui';
+import PageWithMenu from './PageWithMenu.jsx';
+import Editor from './Editor.jsx';
 
-import LaneActions from '../actions/LaneActions';
-import LaneStore from '../stores/LaneStore';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd/modules/backends/HTML5';
+    this.state = {
+      showSchedule: true,
+      schedule: [
+        {text: 'Doing cool things with code'}
+      ]
+    };
 
-@DragDropContext(HTML5Backend)
-export default class App extends React.Component {
+    this.onItemSelected = this.onItemSelected.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
+  }
+
   render() {
+    const schedule = this.state.schedule;
+
     return (
-      <div>
-        <button onClick={this.addItem}>+</button>
-        <AltContainer
-          stores={[LaneStore]}
-          inject={{
-            items: () => LaneStore.getState().lanes || []
-          }} >
+      <AppCanvas className='app'>
+        <AppBar
+          title='Confboard' />
 
-          <Lanes />
+        <PageWithMenu
+          menuItems={schedule}
+          onChange={this.onItemSelected}>
 
-        </AltContainer>
-      </div>
+          <Editor title='Doing cool things with code' />
+
+        </PageWithMenu>
+      </AppCanvas>
     );
   }
 
-  addItem(){
-    LaneActions.create({name: 'New lane'});
+  onItemSelected(e, value) {
+    console.log('item selected', value);
   }
 }
+
+App.contextTypes = {
+  router: React.PropTypes.func
+};
+
+App.childContextTypes = {
+  muiTheme: React.PropTypes.object
+};
+
+export default App;
