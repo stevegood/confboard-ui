@@ -1,13 +1,13 @@
 import React from 'react';
-import ThemeManager from '../libs/thememanager';
+// import ThemeManager from '../libs/thememanager';
 import {Menu} from 'material-ui';
 
 class PageWithMenu extends React.Component {
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
-  }
+  // getChildContext() {
+  //   return {
+  //     muiTheme: ThemeManager.getCurrentTheme()
+  //   };
+  // }
 
   render() {
     const wrapperStyle = {
@@ -48,12 +48,12 @@ class PageWithMenu extends React.Component {
   }
 }
 
-PageWithMenu.contextTypes = {
-  router: React.PropTypes.func
-};
-
-PageWithMenu.childContextTypes = {
-  muiTheme: React.PropTypes.object
-};
+// PageWithMenu.contextTypes = {
+//   router: React.PropTypes.func
+// };
+//
+// PageWithMenu.childContextTypes = {
+//   muiTheme: React.PropTypes.object
+// };
 
 export default PageWithMenu;

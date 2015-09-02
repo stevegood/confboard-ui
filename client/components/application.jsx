@@ -1,10 +1,12 @@
-import React from 'react';
-import ThemeManager from '../libs/thememanager';
-import {AppBar, AppCanvas, Menu, MenuItem} from 'material-ui';
+import React from 'react/addons';
+import mui from 'material-ui';
+import {AppBar, AppCanvas} from 'material-ui';
 import PageWithMenu from './PageWithMenu.jsx';
 import Editor from './Editor.jsx';
 
-class App extends React.Component {
+const ThemeManager = mui.Styles.ThemeManager();
+
+class Application extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,7 +23,7 @@ class App extends React.Component {
   getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
-    };
+    }
   }
 
   render() {
@@ -40,7 +42,7 @@ class App extends React.Component {
 
         </PageWithMenu>
       </AppCanvas>
-    );
+    )
   }
 
   onItemSelected(e, value) {
@@ -48,12 +50,12 @@ class App extends React.Component {
   }
 }
 
-App.contextTypes = {
+Application.contextTypes = {
   router: React.PropTypes.func
 };
 
-App.childContextTypes = {
-  muiTheme: React.PropTypes.object
+Application.childContextTypes = {
+  muiTheme : React.PropTypes.object
 };
 
-export default App;
+export default Application;

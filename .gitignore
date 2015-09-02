@@ -1,8 +1,6 @@
-/.c9
-/node_modules
-/bower_components
-/null
-/build
-/.idea
-*.iml
-*.log
+node_modules
+npm-debug.log
+.idea/
+coverage/
+dist
+assets.json

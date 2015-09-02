@@ -1,7 +1,6 @@
 import React from 'react';
-import ThemeManager from '../libs/thememanager';
-import {IconButton, Toolbar, ToolbarGroup} from 'material-ui';
-import Icon from 'react-fa';
+// import ThemeManager from '../libs/thememanager';
+import {FontIcon, IconButton, Toolbar, ToolbarGroup} from 'material-ui';
 
 class Editor extends React.Component {
   render() {
@@ -11,7 +10,7 @@ class Editor extends React.Component {
         <Toolbar>
           <ToolbarGroup key={0}>
             <IconButton>
-              <Icon name='bold' />
+              <FontIcon className='fa fa-bold' />
             </IconButton>
           </ToolbarGroup>
         </Toolbar>
