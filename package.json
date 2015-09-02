@@ -1,18 +1,17 @@
 {
-  "name": "react-webpack-boilerplate",
-  "version": "2.0.0",
-  "description": "Simple production ready boilerplate for React, Webpack (SASS and React hot reloading), tests and coverage.",
+  "name": "confboard-ui",
+  "version": "1.0.0",
+  "description": "A simple UI for keeping track of conference sessions and attaching notes to them.",
   "main": "index.js",
   "scripts": {
     "start": "node index",
     "test": "NODE_ENV=test jest",
     "coverage": "NODE_ENV=test jest --coverage",
-    "dist": "NODE_ENV=production webpack -p",
-    "postinstall": "npm run dist"
+    "dist": "NODE_ENV=production webpack -p"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/srn/react-webpack-boilerplate.git"
+    "url": "https://github.com/stevegood/confboard-ui.git"
   },
   "engines": {
     "node": "0.10",
@@ -27,12 +26,11 @@
     "hot",
     "reload"
   ],
-  "author": "Søren Brokær <root@srn.io> (http://srn.io)",
+  "author": "Steve Good <sgood@lanctr.com> (http://lanctr.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/srn/react-webpack-boilerplate/issues"
+    "url": "https://github.com/stevegood/confboard-ui/issues"
   },
-  "homepage": "https://github.com/srn/react-webpack-boilerplate",
   "dependencies": {
     "compression": "1.5.1",
     "ejs": "2.3.3",
@@ -58,7 +56,7 @@
     "eslint": "0.24.0",
     "eslint-loader": "0.14.1",
     "eslint-plugin-react": "2.6.3",
-    "jest-cli": "0.4.13",
+    "jest-cli": "0.5.0",
     "jsx-loader": "0.13.2",
     "node-libs-browser": "0.5.2",
     "react-hot-loader": "1.2.7",
