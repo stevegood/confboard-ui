@@ -1,0 +1,22 @@
+$menuWidth: 400px;
+
+.page-with-menu {
+  padding-top: $navHeight;
+  position: relative;
+
+  .page-menu {
+    position:  absolute;
+    border-top: none;
+    overflow: hidden;
+    top: $navHeight;
+    width: $menuWidth;
+  }
+
+  .page-content {
+    border-left: solid 1px #e0e0e0;
+    box-sizing: border-box;
+    margin-left: $menuWidth;
+    min-height: 800px;
+    padding: 24px;
+  }
+}
