@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var webpack = require('webpack');
 var config = require('./webpack.base.config.js');
 
@@ -18,7 +19,11 @@ config.plugins = config.plugins.concat([
 ]);
 
 config.module.loaders = config.module.loaders.concat([
-  {test: /\.jsx?$/, loaders: [ 'react-hot', 'babel?optional=runtime'], exclude: /node_modules/}
+  {
+    test: /\.jsx?$/,
+    loaders: [ 'react-hot', 'babel'],
+    include: path.join(process.cwd(), 'client')
+  }
 ]);
 
 module.exports = config;

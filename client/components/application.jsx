@@ -1,20 +1,44 @@
 import React from 'react/addons';
-import mui from 'material-ui';
+import uuid from 'node-uuid';
 import {AppBar, AppCanvas} from 'material-ui';
+import ThemeManager from '../libs/theme-manager';
 import PageWithMenu from './PageWithMenu.jsx';
-import Editor from './Editor.jsx';
+import Editor from './editor.jsx';
 
-const ThemeManager = mui.Styles.ThemeManager();
+const schedule = [
+  {
+    text: 'Doing cool things with code',
+    id: uuid.v4()
+  }
+];
 
-class Application extends React.Component {
+const notes = [
+  {
+    text: 'This is an amazing talk!',
+    scheduleId: schedule[0].id
+  }
+];
+
+export default class Application extends React.Component {
+  static get contextTypes() {
+    return {
+      router: React.PropTypes.func
+    };
+  }
+
+  static get childContextTypes() {
+    return {
+      muiTheme : React.PropTypes.object
+    };
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
       showSchedule: true,
-      schedule: [
-        {text: 'Doing cool things with code'}
-      ]
+      schedule: schedule,
+      notes: notes
     };
 
     this.onItemSelected = this.onItemSelected.bind(this);
@@ -28,17 +52,17 @@ class Application extends React.Component {
 
   render() {
     const schedule = this.state.schedule;
+    const selectedSchedule = schedule[0];
+    const selectedNote = notes[0];
 
     return (
       <AppCanvas className='app'>
-        <AppBar
-          title='Confboard' />
-
+        <AppBar title='Confboard' />
         <PageWithMenu
           menuItems={schedule}
           onChange={this.onItemSelected}>
 
-          <Editor title='Doing cool things with code' />
+          <Editor title={selectedSchedule.text} note={selectedNote} />
 
         </PageWithMenu>
       </AppCanvas>
@@ -49,13 +73,3 @@ class Application extends React.Component {
     console.log('item selected', value);
   }
 }
-
-Application.contextTypes = {
-  router: React.PropTypes.func
-};
-
-Application.childContextTypes = {
-  muiTheme : React.PropTypes.object
-};
-
-export default Application;
