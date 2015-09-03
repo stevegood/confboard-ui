@@ -19,3 +19,5 @@ class ScheduleStore {
     });
   }
 }
+
+export default alt.createStore(ScheduleStore, 'ScheduleStore');
