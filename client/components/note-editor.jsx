@@ -1,5 +1,6 @@
 import NoteActions from '../actions/note-actions';
 import React from 'react';
+import SubstanceEditor from 'react-substance';
 import mui from 'material-ui';
 import {
   Avatar,
@@ -14,7 +15,7 @@ import {
   ToolbarSeparator
 } from 'material-ui';
 
-class Editor extends React.Component {
+class NoteEditor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -58,6 +59,8 @@ class Editor extends React.Component {
             </ToolbarGroup>
           </Toolbar>
 
+          <SubstanceEditor />
+
           <TextField
             ref="editorField"
             className="editor-field"
@@ -71,4 +74,4 @@ class Editor extends React.Component {
   }
 }
 
-export default Editor;
+export default NoteEditor;

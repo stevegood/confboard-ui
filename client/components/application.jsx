@@ -3,7 +3,7 @@ import uuid from 'node-uuid';
 import {AppBar, AppCanvas} from 'material-ui';
 import ThemeManager from '../libs/theme-manager';
 import PageWithMenu from './PageWithMenu.jsx';
-import Editor from './editor.jsx';
+import NoteEditor from './note-editor.jsx';
 
 const schedule = [
   {
@@ -62,7 +62,7 @@ export default class Application extends React.Component {
           menuItems={schedule}
           onChange={this.onItemSelected}>
 
-          <Editor title={selectedSchedule.text} note={selectedNote} />
+          <NoteEditor title={selectedSchedule.text} note={selectedNote} />
 
         </PageWithMenu>
       </AppCanvas>
